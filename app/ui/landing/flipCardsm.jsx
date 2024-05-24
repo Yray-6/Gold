@@ -85,8 +85,8 @@ export default function FlipCardsm() {
   return (
     <div className="flex flex-wrap justify-center">
         {cards.map((card, index) => (
-            <div className="w-1/2 p-1">
-                <FlipCardss key={index} card={card} />
+            <div className="w-1/2 p-1" key={index}>
+                <FlipCardss  card={card} />
             </div>
         
       ))} 

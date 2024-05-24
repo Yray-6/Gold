@@ -251,8 +251,8 @@ export default function page() {
       </div>
       <div className="bg-blu lg:py-10 lg:px-[27rem] px-7 py-10 flex flex-col text-[0.9rem] gap-9">
         <p>
-          [1, 3, 4, 6, 7, 9] As of 31 December 2023. See also "The case for a
-          strategic allocation to gold" on Goldhub.
+          [1, 3, 4, 6, 7, 9] As of 31 December 2023. See also &quot;The case for a
+          strategic allocation to gold&quot; on Goldhub.
         </p>
         <p>[2] Money and Gold, gold.org</p>
         <p>

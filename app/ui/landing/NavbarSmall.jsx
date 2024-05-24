@@ -43,9 +43,9 @@ function NavbarSmall() {
           <div className="flex flex-col gap-2 pl-5 text-sm font-light">
             <Link href="/" className="hover:bg-black hover:text-white"><p>How to Own Gold Online</p></Link>
             <Link href="/buying" className="hover:bg-black hover:text-white"><p>Transparency in Buying</p></Link>
-            <Link href="/insights" className="hover:bg-black hover:text-white"><p>Gold's Liquidity</p></Link>
+            <Link href="/insights" className="hover:bg-black hover:text-white"><p>Gold&apos;s Liquidity</p></Link>
             <Link href="/case" className="hover:bg-black hover:text-white"><p>Ease of Investment</p></Link>
-            <Link href="/buying" className="hover:bg-black hover:text-white"><p>Gold's Role in Society </p></Link>
+            <Link href="/buying" className="hover:bg-black hover:text-white"><p>Gold&apos;s Role in Society </p></Link>
             <Link href="/insights" className="hover:bg-black hover:text-white"><p>How Gold is Different</p></Link>
           </div>
           <Link href="/case" className={clsx("text-lg font-light",{"font-normal":pathname === "/case"})} onClick={toggleMenu}>

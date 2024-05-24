@@ -57,7 +57,7 @@ export default function Home() {
           Discover more of gold’s potential benefits
         </p>
         <p className="text-[1.6rem] lg:mb-32 text-cusblue">
-          Learn about gold's qualities
+          Learn about gold&apos;s qualities
         </p>
         <div className="mt-3 hidden lg:block">
           <FlipCard />
@@ -165,7 +165,7 @@ export default function Home() {
             of its unique combination of qualities.
           </p>
           <p className="mb-5">
-            If you're looking for more secure options for storing your wealth,
+            If you&apos;re looking for more secure options for storing your wealth,
             gold offers the potential for competitive returns over time.
           </p>
           <p className="mb-5">
