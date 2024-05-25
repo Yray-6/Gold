@@ -20,7 +20,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="h-screen hero  flex-col  justify-center">
           <div className="relative z-40 lg:pt-40 pt-56">
-            <p className=" text-gold lg:text-[5.8rem] text-[2.8rem] px-5 lg:px-0 leading-tight lg:lineht font-bold text-center pt-44">
+            <p className=" text-gold lg:text-[5.8rem] text-[2.8rem] px-5 lg:px-0 leading-tight font-bold text-center pt-[10%]">
               INVEST IN <br /> TOMORROW, <br /> TODAY
             </p>
             <p className="text-gold lg:text-[2rem] text-[1.5rem] text-center pt-5 px-5 lg:px-0">
@@ -178,7 +178,7 @@ export default function Home() {
         <div className="col-span-1 lg:pl-16">
           <Image
             src="/eat1.avif"
-            width={450}
+            width={1000}
             height={800}
             alt="men"
             className="self-center"

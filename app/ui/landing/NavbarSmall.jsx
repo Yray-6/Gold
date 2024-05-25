@@ -36,18 +36,18 @@ function NavbarSmall() {
           menuOpen ? "transform translate-y-0" : "transform -translate-y-full"
         }`}
       >
-        <nav className="flex flex-col  mt-20 space-y-5">
+        <nav className="flex flex-col  mt-20 space-y-6">
           <Link href="/" className={clsx("text-lg font-light",{"font-normal":pathname === "/"})} onClick={toggleMenu}>
             Invest in Tomorrow, Today
           </Link>
-          <div className="flex flex-col gap-2 pl-5 text-sm font-light">
+          {/* <div className="flex flex-col gap-2 pl-5 text-sm font-light">
             <Link href="/" className="hover:bg-black hover:text-white"><p>How to Own Gold Online</p></Link>
             <Link href="/buying" className="hover:bg-black hover:text-white"><p>Transparency in Buying</p></Link>
             <Link href="/insights" className="hover:bg-black hover:text-white"><p>Gold&apos;s Liquidity</p></Link>
             <Link href="/case" className="hover:bg-black hover:text-white"><p>Ease of Investment</p></Link>
             <Link href="/buying" className="hover:bg-black hover:text-white"><p>Gold&apos;s Role in Society </p></Link>
             <Link href="/insights" className="hover:bg-black hover:text-white"><p>How Gold is Different</p></Link>
-          </div>
+          </div> */}
           <Link href="/case" className={clsx("text-lg font-light",{"font-normal":pathname === "/case"})} onClick={toggleMenu}>
             The Case for Gold
           </Link>
@@ -60,6 +60,9 @@ function NavbarSmall() {
           <a href="#" className="text-lg font-light">
         EN | DE
       </a>
+      <button className=" bg-gradient-to-r from-gradf to-gradt py-3 px-7  w-full text-base rounded font-semibold text-black">
+        <Link href="/login">Login/Signup</Link>
+      </button>
         </nav>
       </div>
     </div>
