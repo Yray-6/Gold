@@ -9,11 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/icons-material": "^5.15.18",
+    "@mui/material": "^5.15.18",
+    "@mui/x-charts": "^7.5.1",
     "aos": "^2.3.4",
+    "axios": "^1.7.2",
     "clsx": "^2.1.1",
+    "formik": "^2.4.6",
     "framer-motion": "^11.2.6",
     "next": "14.2.3",
     "owl.carousel": "^2.3.4",
@@ -22,7 +29,8 @@
     "react-owl-carousel": "^2.3.3",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
-    "swiper": "^7.0.0"
+    "swiper": "^7.0.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "eslint": "^8",
