@@ -16,7 +16,7 @@ function NavbarSmall() {
 
   const pathname = usePathname();
   return (
-    <div className="fixed w-full bg-white z-50 shadow-md">
+    <div className={clsx('fixed w-full bg-white z-50 shadow-md',{'hidden': pathname.startsWith('/dashboard')})}>
       <div className="flex justify-between bg-white px-6 py-7 z-30 relative items-center">
         <Link href="/">
           <Image src="/logo.svg" width={90} height={100} alt="logo" />

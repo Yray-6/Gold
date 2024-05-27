@@ -19,11 +19,14 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import MainListItems from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import TradingView from './TradingView';
+import Image from 'next/image';
+import { AccountBalance, AccountBalanceWallet, AccountBalanceWalletOutlined, AccountCircleOutlined, ImageAspectRatioRounded, Wallet, WalletSharp } from '@mui/icons-material';
+import { petrona } from '@/app/layout';
 
 function Copyright(props) {
   return (
@@ -87,14 +90,15 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Dashboard() {
+export default function Dashboard({children}) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <div className=' bg-blu'>
+         <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -102,6 +106,7 @@ export default function Dashboard() {
             sx={{
               pr: '24px', // keep right padding when drawer closed
             }}
+            className=' bg-gradient-to-r from-black to-gold'
           >
             <IconButton
               edge="start"
@@ -115,7 +120,15 @@ export default function Dashboard() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
+            <Image 
+              src="/logo.svg"
+              width={1000}
+              height={100}
+              alt="logo"
+              className='lg:w-28 w-16'
+              
+            />
+            {/* <Typography
               component="h1"
               variant="h6"
               color="inherit"
@@ -123,12 +136,14 @@ export default function Dashboard() {
               sx={{ flexGrow: 1 }}
             >
               Dashboard
-            </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            </Typography> */}
+            <div className={`${petrona.className} text-[1.5rem] font-extrabold ml-10 flex items-center gap-3`}>
+            Total Balance  <AccountBalanceWalletOutlined className='text-[1.5rem]'/>
+              $1000
+            </div>
+            <div className={`${petrona.className} text-[1.0rem] font-extrabold ml-10 flex items-center gap-3`}>
+              OGHENEVWAIRE DAVID <AccountCircleOutlined className='text-[3rem]'/>
+            </div>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -146,69 +161,15 @@ export default function Dashboard() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            <MainListItems/>
           </List>
         </Drawer>
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
-            flexGrow: 1,
-            height: '100vh',
-            overflow: 'auto',
-          }}
-        >
-          <Toolbar />
-          <div className='mx-50 bg-slate-600'>
-            <Orders/>
-          </div>
-          {/* <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}> */}
-              {/* Chart */}
-             
-              {/* <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 450,
-                    overflow: "hidden"
-                  }}
-                >
-                 <TradingView/>
-                </Paper>
-              </Grid> */}
-             
-              {/* Recent Deposits */}
-              {/* <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Deposits />
-                </Paper>
-              </Grid> */}
-              {/* Recent Orders */}
-              {/* <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}> */}
-                  {/* <Orders /> */}
-                {/* </Paper>
-              </Grid>
-            </Grid>
-            <Copyright sx={{ pt: 4 }} />
-          </Container> */}
-        </Box>
+       
+         <div>{children}</div>
+       
       </Box>
     </ThemeProvider>
+    </div>
+   
   );
 }
