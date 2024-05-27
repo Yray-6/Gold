@@ -10,6 +10,7 @@ import { API_URL } from "../config";
 
 export default function VerifyEmailPage() {
   const [loading, setLoading] = useState(false);
+  const [loadings, setLoadings] = useState(false);
   const [message, setMessage] = useState("");
 
   const formik = useFormik({
@@ -44,20 +45,20 @@ export default function VerifyEmailPage() {
       setLoading(false);
     },
   });
-  
+
 
   const handleResendCode = async () => {
-    setLoading(true);
+    setLoadings(true);
     setMessage("");
     try {
       const token = localStorage.getItem('token'); // Get the token from local storage
-      const response = await fetch("https://goldback.onrender.com/auth/verify-email", {
+      const response = await fetch("https://goldback.onrender.com/auth/resend-email-code", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(values)
+       
       })
       const result = await response.json()
       if (result.status === "success") {
@@ -68,7 +69,7 @@ export default function VerifyEmailPage() {
     } catch (error) {
       setMessage("Failed to resend verification code. Please try again.");
     }
-    setLoading(false);
+    setLoadings(false);
   };
 
   return (
@@ -134,9 +135,9 @@ export default function VerifyEmailPage() {
                   type="button"
                   onClick={handleResendCode}
                   className="w-full bg-gradient-to-r from-gradf to-gradt py-3 px-7 text-base rounded font-semibold text-black"
-                  disabled={loading}
+                  disabled={loadings}
                 >
-                  {loading ? 'Resending...' : 'Resend Code'}
+                  {loadings ? 'Resending...' : 'Resend Code'}
                 </button>
               </div>
 

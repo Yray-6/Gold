@@ -60,7 +60,7 @@ function NavbarSmall() {
           <a href="#" className="text-lg font-light">
         EN | DE
       </a>
-      <button className=" bg-gradient-to-r from-gradf to-gradt py-3 px-7  w-full text-base rounded font-semibold text-black">
+      <button onClick={toggleMenu} className=" bg-gradient-to-r from-gradf to-gradt py-3 px-7  w-full text-base rounded font-semibold text-black">
         <Link href="/login">Login/Signup</Link>
       </button>
         </nav>
