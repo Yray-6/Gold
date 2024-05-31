@@ -69,16 +69,16 @@ export default function Orders() {
         <Table size="small">
           <TableHead>
             <TableRow>
-              {/* <TableCell className='lg:block hidden'>Date</TableCell> */}
-              <TableCell>Type</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell align="right">Status</TableCell>
+              <TableCell ><p className='text-lg font-bold'>Dates</p> </TableCell>
+              <TableCell> <p className='text-lg font-bold'>Type</p></TableCell>
+              <TableCell> <p className='text-lg font-bold'>Amount</p></TableCell>
+              <TableCell align="right"> <p className='text-lg font-bold'>Status</p></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {transactionsToShow.map((transaction) => (
               <TableRow key={transaction.id}>
-                <TableCell className='block-lg hidden-lg'>{format(new Date(transaction.createdAt), 'PPPpp')}</TableCell>
+                <TableCell>{format(new Date(transaction.createdAt), 'PPPpp')}</TableCell>
                 <TableCell>{transaction.type}</TableCell>
                 <TableCell>{`$${transaction.amount}`}</TableCell>
                 <TableCell align="right">{transaction.status}</TableCell>

@@ -84,7 +84,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const defaultTheme = createTheme();
 
-export default function Dashboard({ children }) {
+export default function Dashboard() {
   const [open, setOpen] = useState(true);
   const [wallet, setWallet] = React.useState(null);
   const [user, setUser] = useState(null);

@@ -6,7 +6,11 @@ import NavLinks from './NavLinks'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { usePathname } from 'next/navigation'
+import { GoogleTranslate } from './Language'
 
+export const getPrefLangCookie = () => {
+  return cookies().get("googtrans")?.value ?? "en";
+};
 export default function Navbar() {
   const pathname = usePathname();
   return (
@@ -28,6 +32,7 @@ export default function Navbar() {
        <div>
         <NavLinks/>
        </div>
+       <GoogleTranslate prefLangCookie={getPrefLangCookie()}/>
         </div>
       
 

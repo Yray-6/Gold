@@ -68,10 +68,10 @@ export default function DepositPage() {
   });
 
   return (
-    <div className="flex lg:items-center justify-center min-h-screen ">
+    <div className="flex  justify-center min-h-screen ">
       <div className=" w-full py-6 lg:px-12 bg-white ">
-        <h2 className="lg:text-2xl text-xl mt-10 font-bold text-blue-500 lg:text-center mb-4">
-          Deposit Funds
+        <h2 className="lg:text-2xl text-xl mt-10 font-bold  lg:text-center mb-4">
+          Deposit 
         </h2>
         <p className="mb-2 font-medium lg:text-center text-sm lg:text-base text-gold">Add Cash to your wallet to Invest in Gold</p>
         <ul className="pl-5 text-xs mb-5 list-disc">
@@ -124,7 +124,7 @@ export default function DepositPage() {
               className="mt-1 block w-full p-1 lg:p-2 border-b"
             >
               <option value="btc">BTC</option>
-              <option value="eth">ETH</option>
+              <option value="eth">ETH(ERC-20)</option>
               {/* Add more options as needed */}
             </select>
           </div>

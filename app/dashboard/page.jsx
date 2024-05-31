@@ -1,11 +1,12 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Money from "../ui/dashboard/Money";
 import TradingView from "../ui/dashboard/TradingView";
 import Orders from "../ui/dashboard/Orders";
 import Orders2 from "../ui/dashboard/Table";
 
-export default function page() {
+export default function Page() {
   const [wallet, setWallet] = useState(null);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export default function page() {
           <TradingView />
         </div>
         <div className="lg:col-span-1">
-          <div className="hidden lg-block"> <Orders /></div>
+          <div className="hidden lg:block"> <Orders/></div>
          <div className="lg:hidden"><Orders2/></div>
         </div>
       </div>

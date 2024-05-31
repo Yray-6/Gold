@@ -67,6 +67,8 @@ body{
   }
 }
 
+iframe.skiptranslate { display: "none !important"; }
+
 .hero3 {
   background-image: url("/buying.avif");
   background-size: cover;

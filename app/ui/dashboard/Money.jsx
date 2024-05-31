@@ -36,7 +36,7 @@ export default function Money({ wallet }) {
             className=" w-40  h-24 object-cover rounded-xl"/>
         </div>
     </div>
-    <div className='flex lg:gap-5 mt-6 gap-2 justify-center lg:mt-9'>
+    <div className='flex lg:gap-5 mt-6 gap-2 lg:justify-start justify-center lg:mt-9'>
             <Link href="/dashboard/deposit" className='lg:text-[0.8rem] text-[0.9rem] lg:px-4 px-2 py-2 border border-black lg:border-cusblue hover:bg-slate-200 lg:text-white rounded-xl '>
             Deposit <PaidIcon/>
         </Link>

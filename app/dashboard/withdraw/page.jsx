@@ -130,6 +130,7 @@ export default function WithdrawPage() {
               {/* Add more options as needed */}
             </select>
           </div>
+          <div className="text-center">
           <button
             type="button"
             onClick={() => setShowConfirmation(true)}
@@ -138,13 +139,15 @@ export default function WithdrawPage() {
           >
             {loading ? "Processing..." : "Withdraw"}
           </button>
-          {message && <p className="mt-4 text-sm text-red-500">{message}</p>}
+          </div>
+         
+          {message && <p className="mt-4 text-base text-red-500">{message}</p>}
         </form>
         {showConfirmation && (
-          <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75">
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-gray-900 bg-opacity-75">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <p className="text-lg mb-4">
-                Are you sure you want to withdraw {formik.values.amount} to {formik.values.walletAddress}?
+                Are you sure you want to withdraw <p className="font-bold">${formik.values.amount}</p> to <p className="font-bold"> {formik.values.walletAddress}?</p>
               </p>
               <div className="flex justify-center">
                 <button
