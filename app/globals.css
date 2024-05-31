@@ -54,6 +54,19 @@ body{
  
 }
 
+/* styles/globals.css */
+@media (max-width: 1024px) {
+  .hidden-lg {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .block-lg {
+    display: block;
+  }
+}
+
 .hero3 {
   background-image: url("/buying.avif");
   background-size: cover;

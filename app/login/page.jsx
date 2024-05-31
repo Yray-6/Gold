@@ -5,13 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { useRouter } from "next/navigation";
+import MessageModal from "../ui/dashboard/Message";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [openModal, setOpenModal] = useState(false);
   const router = useRouter();
+
+  const handleCloseModal = () => setOpenModal(false);
 
   const formik = useFormik({
     initialValues: {
@@ -32,18 +35,22 @@ export default function LoginPage() {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(values)
-        })
-        const result =await response.json();
+        });
+        const result = await response.json();
         if (result.status === 'success') {
-          // Save token to local storage
           localStorage.setItem('token', result.data.token);
           setMessage("Login successful!");
-          router.push('/dashboard'); // Redirect to the dashboard or home page
+          setOpenModal(true);
+          setTimeout(() => {
+            router.push('/dashboard');
+          }, 2000);
         } else {
           setMessage(result.message || "Something went wrong. Please try again.");
+          setOpenModal(true);
         }
       } catch (error) {
         setMessage("Failed to login. Please check your credentials and try again.");
+        setOpenModal(true);
       }
       setLoading(false);
     },
@@ -51,10 +58,10 @@ export default function LoginPage() {
 
   return (
     <div>
-      <div className="grid lg:grid-cols-2 ">
-        <div className="col-span-1 hero3 hidden lg:block h-screen"></div>
+      <div className="grid lg:grid-cols-2">
+        <div className="col-span-1 hero3 hidden lg:block min-h-full"></div>
         <div className="col-span-1">
-          <div className="flex min-h-full flex-1 flex-col justify-center lg:mt-0 mt-20 px-6 py-12 lg:px-8">
+          <div className="flex min-h-full flex-1 flex-col justify-center lg:mt-12 mt-20 px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <Image
                 className="mx-auto h-10 w-auto"
@@ -67,8 +74,7 @@ export default function LoginPage() {
                 Sign in to your account
               </h2>
             </div>
-
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="mt-7 sm:mx-auto sm:w-full sm:max-w-sm">
               <form className="space-y-6" onSubmit={formik.handleSubmit}>
                 <div>
                   <label
@@ -150,12 +156,12 @@ export default function LoginPage() {
                   Sign up
                 </Link>
               </p>
-
-              {message && <div className="mt-4 text-center text-sm text-red-600">{message}</div>}
             </div>
           </div>
         </div>
       </div>
+
+      <MessageModal open={openModal} onClose={handleCloseModal} message={message} />
     </div>
   );
 }

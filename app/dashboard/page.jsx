@@ -1,10 +1,59 @@
-import React from 'react'
-import Dashboard from '../ui/dashboard/Dashboard'
+"use client";
+import React, { useEffect, useState } from "react";
+import Money from "../ui/dashboard/Money";
+import TradingView from "../ui/dashboard/TradingView";
+import Orders from "../ui/dashboard/Orders";
+import Orders2 from "../ui/dashboard/Table";
 
 export default function page() {
+  const [wallet, setWallet] = useState(null);
+
+  useEffect(() => {
+    const fetchWalletData = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        // Handle when token is not available
+        console.error("Token not available");
+        return;
+      }
+
+      try {
+        const walletResponse = await fetch(
+          "https://goldback.onrender.com/wallet",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const walletResult = await walletResponse.json();
+        if (walletResponse.ok) {
+          setWallet(walletResult.data);
+        } else {
+          console.error("Failed to fetch wallet data");
+        }
+      } catch (error) {
+        console.error("Error fetching wallet data:", error);
+      }
+    };
+
+    fetchWalletData();
+    
+  }
+  , []);
+
   return (
-    <div className='text-[10rem]'>
-        bdcijbds dub jb Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus sapiente recusandae nostrum est, cupiditate nulla sed accusantium quam aliquid, provident enim assumenda, ipsam labore incidunt totam eos odio amet voluptatibus.
+    <div className='overflow-x-hidden'>
+      {wallet && <Money wallet={wallet} />}
+      <div className="grid lg:grid-cols-2 gap-7 overflow-y-hidden">
+        <div className="lg:col-span-1 overflow-y-hidden">
+          <TradingView />
+        </div>
+        <div className="lg:col-span-1">
+          <div className="hidden lg-block"> <Orders /></div>
+         <div className="lg:hidden"><Orders2/></div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }

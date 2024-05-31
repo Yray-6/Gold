@@ -2,6 +2,7 @@ import { Poppins, Petrona } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/landing/Navbar";
 import NavbarSmall from "./ui/landing/NavbarSmall";
+import Head from "next/head";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -20,6 +21,10 @@ export const petrona = Petrona({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <title>My Next.js App</title>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <body className={poppins.className}>
         <div>
           <div className="lg:block hidden">

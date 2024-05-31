@@ -19,11 +19,11 @@ export default function Home() {
       <div className="relative">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="h-screen hero  flex-col  justify-center">
-          <div className="relative z-40 lg:pt-40 pt-56">
-            <p className=" text-gold lg:text-[5.8rem] text-[2.8rem] px-5 lg:px-0 leading-tight font-bold text-center pt-[10%]">
+          <div className="relative z-40 lg:pt-28 pt-56">
+            <p className=" text-gold lg:text-[4.5rem] text-[2.8rem] px-5 lg:px-0 leading-tight font-bold text-center pt-[10%]">
               INVEST IN <br /> TOMORROW, <br /> TODAY
             </p>
-            <p className="text-gold lg:text-[2rem] text-[1.5rem] text-center pt-5 px-5 lg:px-0">
+            <p className="text-gold lg:text-[1.5rem] text-[1.5rem] text-center pt-5 px-5 lg:px-0">
               Explore the potential benefits and ease of investing in gold
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function Home() {
           <FlipCardsm/>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 lg:py-16 px-3 py-7 lg:px-56">
+      <div className="grid lg:grid-cols-2 lg:py-16 px-3 py-7 lg:px-[5%]">
         <div className="col-span-1 lg:pr-20">
           <p className="mb-3">Returns</p>
           <p className={`${petrona.className} font-medium text-[2.5rem] lg:text-[2.8rem] leading-tight mb-5`}>
@@ -115,7 +115,7 @@ export default function Home() {
         </div>
       </div>
       <div className="grid lg:grid-cols-2 px-4">
-        <div className="col-span-1 lg:py-48 leading-tight mt-11 lg:mt-0 lg:pr-10 lg:pl-56">
+        <div className="col-span-1 lg:py-48 leading-tight mt-11 lg:mt-0 lg:pr-10 lg:pl-[5%]">
           <p className={`${petrona.className} font-medium text-[2.5rem] lg:text-[2.8rem] mb-5`}>
             Consider gold’s potential benefits
           </p>
@@ -133,7 +133,7 @@ export default function Home() {
             </Link>
           </p>
         </div>
-        <div className="col-span-1 lg:py-48 lg:pr-60 lg:pl-16 mt-7 lg:mt-0 lg:bg-blu">
+        <div className="col-span-1 lg:py-48 lg:pr-[10%] lg:pl-16 mt-7 lg:mt-0 lg:bg-blu">
           <p className={`${petrona.className} font-medium text-[2.5rem] hidden lg:block lg:text-[2.8rem] leading-tight mb-5`}>
             Get the guide for <br /> investing in gold
           </p>
@@ -155,7 +155,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 mt-10 lg:mt-0 px-4 lg:px-56 lg:py-20  text-white bg-bck">
+      <div className="grid lg:grid-cols-2 mt-10 lg:mt-0 px-4 lg:px-[5%] lg:py-20  text-white bg-bck">
         <div className="col-span-1 pt-7 lg:pr-16">
           <p className={`${petrona.className} font-medium leading-tight lg:text-[2.8rem] text-[2.5rem] mb-5`}>
             A proven protector in times of turmoil
@@ -186,7 +186,7 @@ export default function Home() {
         </div>
       </div>
       <div className="grid lg:grid-cols-2 px-4 lg:px-0 mt-10 lg:mt-0">
-        <div className="col-span-1 lg:py-48 lg:pr-10 lg:pl-56">
+        <div className="col-span-1 lg:py-48 lg:pr-10 lg:pl-[5%]">
           <p>Get weekly insights on gold’s performance </p>
           <p className={`${petrona.className} font-medium text-[2.5rem] lg:text-[2.8rem] mb-5`}>
           Stay up to date
@@ -194,7 +194,7 @@ export default function Home() {
           <p className="lg:mb-12">
           When it comes to meeting the challenges of today’s fast-changing economy, gold’s unique characteristics make it a highly relevant asset. Follow gold’s performance with weekly updates delivered directly to your inbox.
           </p>
-          <p className="lg:mt-20 mt-11 mt-10 lg:inline text-center py-4 px-9 rounded  bg-bck">
+          <p className="lg:mt-20 mt-11 lg:inline text-center py-4 px-9 rounded  bg-bck">
             <Link
               href="/buying"
               className="text-white font-semibold "
@@ -203,7 +203,7 @@ export default function Home() {
             </Link>
           </p>
         </div>
-        <div className="col-span-1 lg:py-48 mt-16 lg:mt-0 lg:pr-48 lg:pl-16 lg:bg-blu">
+        <div className="col-span-1 lg:py-48 mt-16 lg:mt-0 lg:pr-[5%] lg:pl-16 lg:bg-blu">
           <p>Get the latest insights from the World Gold Council</p>
           <p className={`${petrona.className} font-medium text-[2.5rem] leading-tight lg:text-[2.8rem] mb-5`}>
           Explore the home of gold research

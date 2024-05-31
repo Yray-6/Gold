@@ -14,9 +14,16 @@ import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function MainListItems() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); 
+    router.push('/login'); 
+  };
   return (
     <React.Fragment>
       <Link
@@ -54,16 +61,8 @@ export default function MainListItems() {
           <ListItemText primary="Withdraw" />
         </ListItemButton>
       </Link>
-      <Link href="/dashboard/buy">
-        <ListItemButton className={clsx("text-gold", {
-            "bg-black hover:bg-gray-900": pathname === "/dashboard/buy",
-          })}>
-          <ListItemIcon>
-            <DiamondIcon className="text-gold"/>
-          </ListItemIcon>
-          <ListItemText primary="Buy" />
-        </ListItemButton>
-      </Link>
+
+
       <Link href="/dashboard/sell">
         <ListItemButton className={clsx("text-gold", {
             "bg-black hover:bg-gray-900": pathname === "/dashboard/sell",
@@ -71,20 +70,11 @@ export default function MainListItems() {
           <ListItemIcon >
             <SwapHorizIcon className="text-gold"/>
           </ListItemIcon>
-          <ListItemText primary="Sell" />
+          <ListItemText primary="Swap" />
         </ListItemButton>
       </Link>
       <ListSubheader component="div" inset></ListSubheader>
-      <Link href="/dashboard/shop">
-        <ListItemButton className={clsx("text-gold", {
-            "bg-black hover:bg-gray-900": pathname === "/dashboard/shop",
-          })}>
-          <ListItemIcon>
-            <ShoppingCartIcon className="text-gold" />
-          </ListItemIcon>
-          <ListItemText primary="shop" />
-        </ListItemButton>
-      </Link>
+      
       <Link href="/dashboard/transactions">
         <ListItemButton className={clsx("text-gold", {
             "bg-black hover:bg-gray-900": pathname === "/dashboard/transactions",
@@ -95,8 +85,8 @@ export default function MainListItems() {
           <ListItemText primary="Transactions" />
         </ListItemButton>
       </Link>
-      <ListItemButton className="text-gold">
-        <ListItemIcon>
+      <ListItemButton onClick={handleLogout} className="text-gold">
+        <ListItemIcon  >
           <PeopleIcon className="text-gold"/>
         </ListItemIcon>
         <ListItemText primary="Logout" />

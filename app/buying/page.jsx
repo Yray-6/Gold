@@ -10,8 +10,8 @@ export default function page() {
       <div className="relative">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="h-screen hero3 flex-col  justify-center">
-          <div className="relative z-40 lg:pt-72 pt-48">
-            <p className=" text-gold lg:text-[6rem] text-[2.5rem] leading-tight lg:lineht font-extrabold text-center pt-72">
+          <div className="relative z-40 lg:pt-40 pt-48">
+            <p className=" text-gold lg:text-[4.8rem] text-[2.5rem] leading-tight lg:lineht font-extrabold text-center pt-72">
               5-STEP GUIDE
             </p>
           </div>
@@ -25,7 +25,7 @@ export default function page() {
           <p>4. Recognize sales pressure</p>
           <p>5. Verify your seller</p>
         </div>
-        <div className="mt-24 px-3 lg:px-[27rem]">
+        <div className="mt-24 px-3 lg:px-[25%]">
           <p>
             Buying gold can be a simple and safe process, so long as you ask the
             right questions. Ensure your gold is secure and successfully avoid
@@ -33,7 +33,7 @@ export default function page() {
             to start investing in gold.
           </p>
         </div>
-        <div className="lg:mt-36 mt-10 grid lg:grid-cols-2 px-3 lg:px-56 pb-7 lg:pb-10">
+        <div className="lg:mt-36 mt-10 grid lg:grid-cols-2 px-3 lg:px-[5%] pb-7 lg:pb-10">
           <div className="lg:pr-24 lg:mt-56">
             <p
               className={`${petrona.className} text-white leading-tight font-medium text-[2.5rem] lg:text-[2.8rem] mb-5 `}
@@ -58,7 +58,7 @@ export default function page() {
           </div>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 px-3 lg:py-10 lg:px-56">
+      <div className="grid lg:grid-cols-2 px-3 lg:py-10 lg:px-[5%]">
         <div className="col-span-1 py-6 lg:py-0">
           <Image
             src="/legitimate.avif"
@@ -87,7 +87,7 @@ export default function page() {
           <p className="text-[1.2rem] lg:mb-0 mb-8 font-semibold mt-7">See more</p>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 lg:py-10 lg:px-56 px-3 bg-bck text-white">
+      <div className="grid lg:grid-cols-2 lg:py-10 lg:px-[5%] px-3 bg-bck text-white">
         <div className="lg:pr-20 lg:py-32 col-span-1">
           <p
             className={`${petrona.className} font-medium text-[2.5rem] mt-7 lg:mt-0 lg:text-[2.8rem] leading-tight mb-5`}
@@ -111,7 +111,7 @@ export default function page() {
           />
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 px-3 lg:py-20 lg:px-56">
+      <div className="grid lg:grid-cols-2 px-3 lg:py-20 lg:px-[5%]">
         <div className="col-span-1 py-6 lg:py-0">
           <Image
             src="/pressure.avif"
@@ -135,7 +135,7 @@ export default function page() {
           <p className="text-[1.2rem] font-semibold mb-7 lg:mb-0 mt-7">See more</p>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 lg:py-10 lg:px-56 px-3 bg-bck text-white">
+      <div className="grid lg:grid-cols-2 lg:py-10 lg:px-[5%] px-3 bg-bck text-white">
         <div className="lg:pr-20 lg:py-48 col-span-1">
           <p
             className={`${petrona.className} font-medium lg:text-[2.8rem] mt-7 lg:mt-0 text-[2.5rem] leading-tight mb-5`}
@@ -159,7 +159,7 @@ export default function page() {
           />
         </div>
       </div>
-      <div className=" lg:py-48 flex justify-center flex-col px-3 pb-10 lg:pb-0 lg:px-[27rem]">
+      <div className=" lg:py-48 flex justify-center flex-col px-3 pb-10 lg:pb-0 lg:px-[10%]">
         <p
           className={`${petrona.className}  font-medium text-[2.5rem] mt-7 lg:mt-0 lg:text-[2.8rem] leading-tight mb-5`}
         >

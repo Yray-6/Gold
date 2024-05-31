@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -11,29 +11,24 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MainListItems from './listItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Orders from './Orders';
-import TradingView from './TradingView';
+import { AccountBalanceWalletOutlined, AccountCircleOutlined, GppBad, Verified } from '@mui/icons-material';
 import Image from 'next/image';
-import { AccountBalance, AccountBalanceWallet, AccountBalanceWalletOutlined, AccountCircleOutlined, ImageAspectRatioRounded, Wallet, WalletSharp } from '@mui/icons-material';
+import { useRouter } from 'next/navigation';
+import MainListItems from './listItems';
 import { petrona } from '@/app/layout';
+import Person2Icon from '@mui/icons-material/Person2';
+import Loading from './Loading';
+import PaidIcon from '@mui/icons-material/Paid';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" className='text-gold' href="https://mui.com/">
+        World Gold Council
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -84,92 +79,125 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
         },
       }),
     },
-  }),
+  })
 );
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Dashboard({children}) {
-  const [open, setOpen] = React.useState(true);
+export default function Dashboard({ children }) {
+  const [open, setOpen] = useState(true);
+  const [wallet, setWallet] = React.useState(null);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        router.push('/login');
+        return;
+      }
+
+      try {
+        const walletResponse = await fetch('https://goldback.onrender.com/wallet', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        const walletResult = await walletResponse.json();
+        if (walletResponse.ok) {
+          setWallet(walletResult.data);
+        } else {
+          console.error('Failed to fetch wallet data');
+        }
+
+        const response = await fetch('https://goldback.onrender.com/auth/current-user', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        const result = await response.json();
+        if (response.ok) {
+          setUser(result.data);
+        } else {
+          router.push('/login');
+        }
+      } catch (error) {
+        router.push('/login');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [router]);
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    <div className=' bg-blu'>
-         <ThemeProvider theme={defaultTheme}>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar position="absolute" open={open}>
-          <Toolbar
-            sx={{
-              pr: '24px', // keep right padding when drawer closed
-            }}
-            className=' bg-gradient-to-r from-black to-gold'
-          >
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
+    <div >
+      <ThemeProvider theme={defaultTheme}>
+        <Box sx={{ display: 'flex' }}>
+          <CssBaseline />
+          <AppBar position="absolute" open={open}>
+            <Toolbar sx={{ pr: '24px' }} className='bg-gradient-to-r from-black to-gold'>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                onClick={toggleDrawer}
+                sx={{ marginRight: '36px', ...(open && { display: 'none' }) }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <p className='lg:text-xl hidden lg:block'>Hello, {user.firstName} {user.lastName}</p>
+              <p className='lg:text-xl lg:hidden block'>{user.lastName}</p>
+              <button className='py-2 px-3 mx-12 bg-blue-600 hidden lg:block rounded-xl text-xs'>Deposit Funds <PaidIcon /></button>
+              <div className={`${petrona.className} text-[1rem] font-extrabold ml-3 lg:ml-10 flex items-center gap-1`}>
+                <AccountBalanceWalletOutlined className='text-[1.5rem]' /> {`$${wallet.totalBalance}.00`}
+              </div>
+              {/* Spacer to push the profile icon to the right */}
+              <div style={{ flexGrow: 1 }}></div>
+              {user && (
+                <div className='text-[1.0rem] flex items-center gap-3'>
+                  <div className='text-green-700'></div>
+               <Link href="/dashboard/profile" classname="text-white"><Verified/> <GppBad/> <Person2Icon  /></Link>   
+                </div>
+              )}
+            </Toolbar>
+          </AppBar>
+          <Drawer variant="permanent" open={open}>
+            <Toolbar
               sx={{
-                marginRight: '36px',
-                ...(open && { display: 'none' }),
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                px: [1],
               }}
             >
-              <MenuIcon />
-            </IconButton>
-            <Image 
-              src="/logo.svg"
-              width={1000}
-              height={100}
-              alt="logo"
-              className='lg:w-28 w-16'
-              
-            />
-            {/* <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              sx={{ flexGrow: 1 }}
-            >
-              Dashboard
-            </Typography> */}
-            <div className={`${petrona.className} text-[1.5rem] font-extrabold ml-10 flex items-center gap-3`}>
-            Total Balance  <AccountBalanceWalletOutlined className='text-[1.5rem]'/>
-              $1000
-            </div>
-            <div className={`${petrona.className} text-[1.0rem] font-extrabold ml-10 flex items-center gap-3`}>
-              OGHENEVWAIRE DAVID <AccountCircleOutlined className='text-[3rem]'/>
-            </div>
-          </Toolbar>
-        </AppBar>
-        <Drawer variant="permanent" open={open}>
-          <Toolbar
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              px: [1],
-            }}
-          >
-            <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </Toolbar>
-          <Divider />
-          <List component="nav">
-            <MainListItems/>
-          </List>
-        </Drawer>
-       
-         <div>{children}</div>
-       
-      </Box>
-    </ThemeProvider>
+              <IconButton onClick={toggleDrawer}>
+                <ChevronLeftIcon />
+              </IconButton>
+            </Toolbar>
+            <Divider />
+            <List component="nav">
+              <MainListItems onClick={toggleDrawer}/>
+            </List>
+          </Drawer>
+          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+            <Toolbar />
+            {children}
+            <Copyright sx={{ pt: 4 }} />
+          </Box>
+        </Box>
+      </ThemeProvider>
     </div>
-   
   );
 }

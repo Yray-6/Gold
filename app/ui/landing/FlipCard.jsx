@@ -66,13 +66,13 @@ const cards = [
             <div className="absolute w-full  h-full backface-hidden">
             <div className="absolute inset-0 bg-black opacity-20"></div>
               <div className="flex items-center  px-1 rounded-xl justify-center h-full bg-cover bg-no-repeat" style={{backgroundImage:`url(/${card.img})`}}>
-               <p className="text-gold relative z-50 text-[2rem] font-bold text-center"> {card.text}</p>
+               <p className="text-gold relative z-50 text-[1.5rem] font-bold text-center"> {card.text}</p>
               </div>
             </div>
             <div className="absolute w-full h-full backface-hidden transform rotate-y-180">
               <div className="flex-col pt-32 rounded-xl justify-center px-3 h-full bg-white">
                <p className=" text-cusblue"> {card.text}</p>
-               <p className="text-[1.8rem] leading-tight font-extrabold">{card.text2}</p>
+               <p className="text-[1.3rem] leading-tight font-extrabold">{card.text2}</p>
                <button className=" bg-gradient-to-r from-gradf to-gradt py-3 px-7 mt-10 text-base rounded font-semibold text-black"><Link href="/buying">{card.btn}</Link></button>
               </div>
             </div>

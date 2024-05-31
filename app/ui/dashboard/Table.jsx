@@ -10,10 +10,12 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import PaidIcon from '@mui/icons-material/Paid';
 import { format } from 'date-fns';
+import Box from '@mui/material/Box';
 
-export default function Orders() {
+export default function Orders2() {
   const [transactions, setTransactions] = React.useState(null);
   const [showAllTransactions, setShowAllTransactions] = useState(false);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -38,6 +40,8 @@ export default function Orders() {
         }
       } catch (error) {
         console.error('Failed to fetch transactions', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -45,6 +49,10 @@ export default function Orders() {
   }, [router]);
 
   const renderTransactions = () => {
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
     if (!transactions) {
       return <div>Loading...</div>;
     }
@@ -65,11 +73,11 @@ export default function Orders() {
     }
 
     return (
-      <div style={{ overflowX: 'scroll' }}>
+      <Box sx={{ overflowX: 'auto' }}>
         <Table size="small">
           <TableHead>
             <TableRow>
-              {/* <TableCell className='lg:block hidden'>Date</TableCell> */}
+           
               <TableCell>Type</TableCell>
               <TableCell>Amount</TableCell>
               <TableCell align="right">Status</TableCell>
@@ -78,7 +86,6 @@ export default function Orders() {
           <TableBody>
             {transactionsToShow.map((transaction) => (
               <TableRow key={transaction.id}>
-                <TableCell className='block-lg hidden-lg'>{format(new Date(transaction.createdAt), 'PPPpp')}</TableCell>
                 <TableCell>{transaction.type}</TableCell>
                 <TableCell>{`$${transaction.amount}`}</TableCell>
                 <TableCell align="right">{transaction.status}</TableCell>
@@ -86,7 +93,7 @@ export default function Orders() {
             ))}
           </TableBody>
         </Table>
-      </div>
+      </Box>
     );
   };
 

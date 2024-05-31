@@ -6,11 +6,15 @@ import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
+import MessageModal from "../ui/dashboard/Message"; // Adjust the import path as needed
 
 export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [openModal, setOpenModal] = useState(false);
   const router = useRouter();
+
+  const handleCloseModal = () => setOpenModal(false);
 
   const formik = useFormik({
     initialValues: {
@@ -34,27 +38,30 @@ export default function RegisterPage() {
     onSubmit: async (values) => {
       setLoading(true);
       setMessage("");
-      try{
+      try {
         const response = await fetch("https://goldback.onrender.com/auth/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(values)
-        })
-        const result = await response.json()
-        if(result.status === 'success'){
+        });
+        const result = await response.json();
+        if (result.status === 'success') {
           localStorage.setItem('token', result.data.token);
-            setMessage(result.message);
-            router.push('/verify-email'); // Redirect to email verification page
-          } else {
-            setMessage(result.message || "Something went wrong. Please try again.");
-          }
+          setMessage(result.message);
+          setOpenModal(true);
+          setTimeout(() => {
+            router.push('/verify-email');
+          }, 2000); // Adjust timeout as needed
+        } else {
+          setMessage(result.message || "Something went wrong. Please try again.");
+          setOpenModal(true);
         }
-      catch(error){
+      } catch (error) {
         setMessage("Failed to Sign up. Please check your credentials and try again.");
+        setOpenModal(true);
       }
-     
       setLoading(false);
     }
   });
@@ -230,7 +237,7 @@ export default function RegisterPage() {
                 </Link>
               </p>
 
-              {message && <div className="mt-4 text-center text-sm text-red-600">{message}</div>}
+              {message && <MessageModal open={openModal} onClose={handleCloseModal} message={message} />}
             </div>
           </div>
         </div>
