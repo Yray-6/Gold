@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Money from "../ui/dashboard/Money";
 import TradingView from "../ui/dashboard/TradingView";
 import Orders from "../ui/dashboard/Orders";
 import Orders2 from "../ui/dashboard/Table";
 
 export default function Page() {
+  
   const [wallet, setWallet] = useState(null);
 
   useEffect(() => {

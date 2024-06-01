@@ -54,9 +54,6 @@ function NavbarSmall() {
           <Link href="/buying" className={clsx("text-lg font-light",{"font-normal":pathname === "/buying"})} onClick={toggleMenu}>
             Buying Gold Safely
           </Link>
-          <Link href="/insights" className={clsx("text-lg font-light",{"font-normal":pathname === "/insights"})} onClick={toggleMenu}>
-              Insights
-          </Link>
           <a href="#" className="text-lg font-light">
         EN | DE
       </a>

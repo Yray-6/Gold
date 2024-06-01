@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import React, { useState, useEffect } from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,20 +13,19 @@ import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { AccountBalanceWalletOutlined, AccountCircleOutlined, GppBad, Verified } from '@mui/icons-material';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import MainListItems from '../ui/dashboard/listItems';
-import { petrona } from '@/app/layout';
+import { AccountBalanceWalletOutlined, Verified, GppBad } from '@mui/icons-material';
 import Person2Icon from '@mui/icons-material/Person2';
 import Loading from '../ui/dashboard/Loading';
 import PaidIcon from '@mui/icons-material/Paid';
+import { useRouter } from 'next/navigation';
+import MainListItems from '../ui/dashboard/listItems';
+import { petrona } from '@/app/layout';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" className='text-gold' href="https://mui.com/">
+      <Link color="inherit" className='text-gold' href="https://mu.com/">
         World Gold Council
       </Link>{' '}
       {new Date().getFullYear()}
@@ -86,8 +84,9 @@ const defaultTheme = createTheme();
 
 export default function Layout({children}) {
   const [open, setOpen] = useState(true);
-  const [wallet, setWallet] = React.useState(null);
+  const [wallet, setWallet] = useState(null);
   const [user, setUser] = useState(null);
+  const [kycVerified, setKycVerified] = useState(false);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -120,6 +119,7 @@ export default function Layout({children}) {
         const result = await response.json();
         if (response.ok) {
           setUser(result.data);
+          setKycVerified(result.data.kycVerified);  // Assuming your API response contains a kycVerified field
         } else {
           router.push('/login');
         }
@@ -167,8 +167,10 @@ export default function Layout({children}) {
               <div style={{ flexGrow: 1 }}></div>
               {user && (
                 <div className='text-[1.0rem] flex items-center gap-3'>
-                  <div className='text-green-700'></div>
-               <Link href="/dashboard/profile" classname="text-white"><Verified/> <GppBad/> <Person2Icon  /></Link>   
+                  <div className='flex items-center gap-1'>
+                    {kycVerified ? <Verified className="text-green-600" /> : <GppBad className="text-red-600" />}
+                    <Link href="/dashboard/profile" className="text-white"><Person2Icon /></Link>
+                  </div>
                 </div>
               )}
             </Toolbar>
