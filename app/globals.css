@@ -19,6 +19,7 @@ body{
     background-repeat: no-repeat;
   }
 }
+
 .hero {
   background-size: cover;
   background-repeat: no-repeat;
@@ -53,6 +54,26 @@ body{
   }
  
 }
+/* app/globals.css */
+#google_translate_element {
+  position: fixed;
+  top: 70px;
+  right: 10px;
+  z-index: 1000;
+  background: transparent;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
 
 /* styles/globals.css */
 @media (max-width: 1024px) {

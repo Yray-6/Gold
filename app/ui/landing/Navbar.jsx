@@ -13,7 +13,7 @@ export default function Navbar() {
     <div className='fixed w-full bg-white z-50'>
       
         <div className={clsx("flex px-20 py-5 justify-between items-center",{
-          "hidden": pathname.startsWith("/dashboard")
+          "hidden": pathname.startsWith("/dashboard") || pathname.startsWith("/adminito69")
         })}>
         <Link href="/">
         <Image
