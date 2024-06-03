@@ -7,11 +7,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { API_URL } from "../config";
+import { useRouter } from "next/navigation";
+
 
 export default function VerifyEmailPage() {
   const [loading, setLoading] = useState(false);
   const [loadings, setLoadings] = useState(false);
   const [message, setMessage] = useState("");
+  const router = useRouter();
 
   const formik = useFormik({
     initialValues: {
@@ -36,6 +39,7 @@ export default function VerifyEmailPage() {
           const result = await response.json()
         if (result.status === 'success') {
           setMessage("Email verified successfully!");
+          router.push('/dashboard')
         } else {
           setMessage(result.message || "Something went wrong. Please try again.");
         }
