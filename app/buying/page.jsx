@@ -36,7 +36,7 @@ export default function page() {
         <div className="lg:mt-36 mt-10 grid lg:grid-cols-2 px-3 lg:px-[5%] pb-7 lg:pb-10">
           <div className="lg:pr-24 lg:mt-56">
             <p
-              className={`${petrona.className} text-white leading-tight font-medium text-[2.5rem] lg:text-[2.8rem] mb-5 `}
+              className={` text-white leading-tight font-medium text-[2.5rem] lg:text-[2.8rem] mb-5 `}
             >
               Choose the right gold product for you
             </p>
