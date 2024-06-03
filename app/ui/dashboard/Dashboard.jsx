@@ -27,7 +27,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" className='text-gold' href="https://mui.com/">
+      <Link color="inherit" className='text-gold' href="https://www.wgcgold.com/">
         World Gold Council
       </Link>{' '}
       {new Date().getFullYear()}
