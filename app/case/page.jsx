@@ -22,7 +22,7 @@ export default function page() {
       </div>
       <div className="bg-bck lg:py-48 flex py-10 justify-center px-3 flex-col lg:px-[23rem] text-white">
         <p
-          className={`${petrona.className} text-white font-medium text-[2.5rem] lg:text-[2.8rem] mb-5`}
+          className={` text-white font-medium text-[2.5rem] lg:text-[2.8rem] mb-5`}
         >
           Why investors turn to gold
         </p>
@@ -43,7 +43,7 @@ export default function page() {
       <div className="grid lg:grid-cols-2 lg:py-20 px-3 lg:px-[5%]">
         <div className="col-span-1 lg:pr-20 pt-16">
           <p className="">Diversification</p>
-          <p className={`${petrona.className} font-medium text-[2.5rem] leading-tight lg:text-[2.8rem] mb-5`}>
+          <p className={` font-medium text-[2.5rem] leading-tight lg:text-[2.8rem] mb-5`}>
             An effective way to hedge risks like <br /> inflation
           </p>
           <p className="mb-5">
@@ -86,7 +86,7 @@ export default function page() {
         <div className="col-span-1 lg:pl-[10%] lg:py-56 py-20 px-3 bg-bck  lg:pr-[5%] text-white">
           <div>
             <p
-              className={`${petrona.className} font-medium leading-tight text-[2.5rem] lg:text-[2.8rem] mb-5`}
+              className={` font-medium leading-tight text-[2.5rem] lg:text-[2.8rem] mb-5`}
             >
               Bubbles burst
             </p>
@@ -111,10 +111,10 @@ export default function page() {
       <div className="grid lg:grid-cols-2 lg:py-20 py-10  lg:px-[5%]">
         <div className="col-span-1 lg:pr-20 px-3 lg:pt-16">
           <p className="">Liquidity</p>
-          <p className={`${petrona.className} font-medium hidden lg:block leading-tight text-[2.5rem] lg:text-[2.8rem] mb-5`}>
+          <p className={` font-medium hidden lg:block leading-tight text-[2.5rem] lg:text-[2.8rem] mb-5`}>
             A flexible, accessible <br /> choice
           </p>
-          <p className={`${petrona.className} font-medium lg:hidden leading-tight text-[2.5rem] lg:text-[2.8rem] mb-5`}>
+          <p className={` font-medium lg:hidden leading-tight text-[2.5rem] lg:text-[2.8rem] mb-5`}>
             A flexible, accessible choice
           </p>
           <p className="mb-5">
@@ -165,7 +165,7 @@ export default function page() {
         </div>
         <div className="col-span-1 lg:pl-[5%] lg:py-24 bg-bck px-3 py-12 lg:pr-[5%] text-white">
           <div>
-            <p className={`${petrona.className} font-medium text-[2.5rem] leading-tight lg:text-[2.5rem] mb-5`}>
+            <p className={` font-medium text-[2.5rem] leading-tight lg:text-[2.5rem] mb-5`}>
               The 5-step guide for buying gold safely
             </p>
             <p>Use our buyer’s guide to invest in gold with confidence.</p>
@@ -183,7 +183,7 @@ export default function page() {
       <div className="grid lg:grid-cols-2 lg:py-16 px-3 py-10 lg:px-[5%]">
         <div className="col-span-1 lg:pr-20 pt-10">
           <p className="mb-3">Returns</p>
-          <p className={`${petrona.className} font-medium text-[2.5rem] leading-tight lg:text-[2.8rem] mb-5`}>
+          <p className={`font-medium text-[2.5rem] leading-tight lg:text-[2.8rem] mb-5`}>
             A proven asset with competitive returns
           </p>
           <p className="mb-5">
@@ -236,7 +236,7 @@ export default function page() {
         </button>
         <div className="mt-48 text-white">
           <p className="mb-0">Diversification. Liquidity. Returns.</p>
-          <p className={`${petrona.className} font-medium text-[2.5rem] leading-tight lg:text-[2.8rem] mb-5`}>
+          <p className={` font-medium text-[2.5rem] leading-tight lg:text-[2.8rem] mb-5`}>
             Gold is your strategic advantage.
           </p>
           <div>

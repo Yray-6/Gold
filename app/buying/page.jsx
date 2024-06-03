@@ -70,12 +70,12 @@ export default function page() {
         </div>
         <div className="lg:pl-10 lg:py-24 col-span-1 ">
           <p
-            className={`${petrona.className} font-medium text-[2.5rem] hidden lg:block lg:text-[2.8rem] leading-tight mb-5`}
+            className={`font-medium text-[2.5rem] hidden lg:block lg:text-[2.8rem] leading-tight mb-5`}
           >
             Confirm the product you’re buying is <br /> legitimate
           </p>
           <p
-            className={`${petrona.className} font-medium text-[2.3rem] mt-3 lg:mt-0 lg:hidden lg:text-[2.8rem] leading-tight mb-5`}
+            className={` font-medium text-[2.3rem] mt-3 lg:mt-0 lg:hidden lg:text-[2.8rem] leading-tight mb-5`}
           >
             Confirm the product you’re buying is  legitimate
           </p>
@@ -90,7 +90,7 @@ export default function page() {
       <div className="grid lg:grid-cols-2 lg:py-10 lg:px-[5%] px-3 bg-bck text-white">
         <div className="lg:pr-20 lg:py-32 col-span-1">
           <p
-            className={`${petrona.className} font-medium text-[2.5rem] mt-7 lg:mt-0 lg:text-[2.8rem] leading-tight mb-5`}
+            className={` font-medium text-[2.5rem] mt-7 lg:mt-0 lg:text-[2.8rem] leading-tight mb-5`}
           >
             Evaluate the costs & <br /> fees
           </p>
@@ -123,7 +123,7 @@ export default function page() {
         </div>
         <div className="lg:pl-10 lg:py-24 col-span-1">
           <p
-            className={`${petrona.className} font-medium text-[2.5rem] lg:text-[2.8rem] leading-tight mb-5`}
+            className={` font-medium text-[2.5rem] lg:text-[2.8rem] leading-tight mb-5`}
           >
             Recognize sales & <br /> marketing pressure
           </p>
@@ -138,7 +138,7 @@ export default function page() {
       <div className="grid lg:grid-cols-2 lg:py-10 lg:px-[5%] px-3 bg-bck text-white">
         <div className="lg:pr-20 lg:py-48 col-span-1">
           <p
-            className={`${petrona.className} font-medium lg:text-[2.8rem] mt-7 lg:mt-0 text-[2.5rem] leading-tight mb-5`}
+            className={` font-medium lg:text-[2.8rem] mt-7 lg:mt-0 text-[2.5rem] leading-tight mb-5`}
           >
             Verify the seller is <br /> legitimate
           </p>
@@ -161,7 +161,7 @@ export default function page() {
       </div>
       <div className=" lg:py-48 flex justify-center flex-col px-3 pb-10 lg:pb-0 lg:px-[10%]">
         <p
-          className={`${petrona.className}  font-medium text-[2.5rem] mt-7 lg:mt-0 lg:text-[2.8rem] leading-tight mb-5`}
+          className={` font-medium text-[2.5rem] mt-7 lg:mt-0 lg:text-[2.8rem] leading-tight mb-5`}
         >
           How the World Gold Council helps you
         </p>

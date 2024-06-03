@@ -6,7 +6,7 @@ import Footer from "../ui/landing/Footer";
 export default function page() {
   return (
     <div className="">
-      <div className="relative">
+      {/* <div className="relative">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className=" hero4 flex-col  justify-center">
           <div className="relative z-40 pt-48 pb-10">
@@ -101,7 +101,7 @@ export default function page() {
           </p>
         </div>
       </div>
-      <Footer/>
+      <Footer/> */}
     </div>
   );
 }
