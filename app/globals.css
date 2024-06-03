@@ -54,6 +54,9 @@ body{
   }
  
 }
+.jh{
+  color: white !important;
+}
 /* app/globals.css */
 #google_translate_element {
   position: fixed;
