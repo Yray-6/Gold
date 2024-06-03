@@ -24,7 +24,7 @@ export default function Money({ wallet }) {
       </div> */}
       <div className=" lg:p-4 p-2 rounded-lg bg-gradient-to-r from-black to-gold shadow-md">
         <h2 className="text-xs lg:text-base font-semibold text-white">Profit</h2>
-        <p className="text-lg lg:text-3xl font-bold text-white">${wallet.goldBalance}.00 </p>
+        <p className="text-lg lg:text-3xl font-bold text-white">${wallet.profits}.00 </p>
       </div>
       </div>
         <div className='self-center lg:block hidden lg:ml-24 '>
