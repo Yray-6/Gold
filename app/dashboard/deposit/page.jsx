@@ -164,14 +164,14 @@ export default function DepositPage() {
         </form>
         {showConfirmation && selectedWallet && (
           <div className="fixed lg:w-full w-[84%] lg:ml-0 ml-[16%] inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75">
-            <div className="bg-white lg:p-6 p-2 rounded-lg shadow-md">
+            <div className="bg-white lg:p-6 p-2 mt-16 rounded-lg shadow-md">
               <p className="text-lg mb-4 font-bold">
                 Deposit of ${formik.values.amount}
               </p>
               <p className="text-sm lg:text-base">Send exact Amount to Wallet Address</p>
               <p className="text-blue-500 font-bold text-sm lg:text-base">Check Transaction to confirm status of Payment</p>
               <div className="flex flex-col justify-center">
-                <div className="flex justify-center py-7">
+                <div className="flex bg-white justify-center py-7">
                   <QRCode value={selectedWallet.address}/>
                 </div>
                 <p className="text-gray-500 text-xs mb-3 lg:mb-7">scan the QR code Above to get wallet address</p>

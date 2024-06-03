@@ -63,7 +63,7 @@ export default function MainListItems() {
       </Link>
 
 
-      <Link href="/dashboard/sell">
+      {/* <Link href="/dashboard/sell">
         <ListItemButton className={clsx("text-gold", {
             "bg-black hover:bg-gray-900": pathname === "/dashboard/sell",
           })}>
@@ -72,7 +72,7 @@ export default function MainListItems() {
           </ListItemIcon>
           <ListItemText primary="Swap" />
         </ListItemButton>
-      </Link>
+      </Link> */}
       <ListSubheader component="div" inset></ListSubheader>
       
       <Link href="/dashboard/transactions">
