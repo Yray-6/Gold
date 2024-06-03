@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { Button } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const DepositDetail = () => {
   const router = useRouter();
@@ -153,6 +155,15 @@ const DepositDetail = () => {
   return (
     <div className="container pt-16 mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">Deposit Details</h1>
+      <Button
+        startIcon={<ArrowBackIcon />}
+        onClick={() => router.back()}
+        variant="contained"
+        color="primary"
+        sx={{ mb: 2 }}
+      >
+        Back
+      </Button>
       <div className="bg-white shadow rounded p-6 mb-8">
         <p><strong>Amount:</strong> {deposit.amount} {deposit.currency}</p>
         <p><strong>Status:</strong> {deposit.status}</p>

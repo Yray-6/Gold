@@ -18,10 +18,10 @@ export default function Money({ wallet }) {
         <h2 className="text-xs lg:text-base font-semibold text-white">Cash Balance</h2>
         <p className="text-lg lg:text-3xl font-bold text-white">${wallet.cashBalance}.00</p>
       </div>
-      <div className=" lg:p-4 p-2 rounded-lg bg-gradient-to-r from-black to-gold shadow-md">
+      {/* <div className=" lg:p-4 p-2 rounded-lg bg-gradient-to-r from-black to-gold shadow-md">
         <h2 className="text-xs lg:text-base font-semibold text-white">Gold Balance</h2>
-        <p className="text-lg lg:text-3xl font-bold text-white">{wallet.goldBalance}.00 oz</p>
-      </div>
+        <p className="text-lg lg:text-3xl font-bold text-white">{wallet.goldBalance}.0 oz</p>
+      </div> */}
       <div className=" lg:p-4 p-2 rounded-lg bg-gradient-to-r from-black to-gold shadow-md">
         <h2 className="text-xs lg:text-base font-semibold text-white">Profit</h2>
         <p className="text-lg lg:text-3xl font-bold text-white">${wallet.goldBalance}.00 </p>

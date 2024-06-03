@@ -141,7 +141,7 @@ export default function WithdrawPage() {
           </button>
           </div>
          
-          {message && <p className="mt-4 text-base text-red-500">{message}</p>}
+          {message && <p className="mt-4 text-center text-base text-red-500">{message}</p>}
         </form>
         {showConfirmation && (
           <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-gray-900 bg-opacity-75">

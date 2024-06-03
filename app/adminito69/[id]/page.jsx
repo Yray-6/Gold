@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Button } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const UserDetail = () => {
   const router = useRouter();
@@ -112,6 +113,15 @@ const UserDetail = () => {
 
   return (
     <div className="container pt-16 mx-auto p-4">
+            <Button
+        startIcon={<ArrowBackIcon />}
+        onClick={() => router.back()}
+        variant="contained"
+        color="primary"
+        sx={{ mb: 2 }}
+      >
+        Back
+      </Button>
       <h1 className="text-3xl font-bold mb-6">User Details</h1>
       <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Personal Information</h2>

@@ -35,6 +35,9 @@ const Navbar = () => {
           <Link href="/adminito69/wallets" className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
             Wallets
           </Link>
+          <Link href="/adminito69/address" className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+            Address
+          </Link>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white hover:text-gray-400 focus:outline-none">
@@ -46,20 +49,23 @@ const Navbar = () => {
       </div>
       {isOpen && (
         <div className="md:hidden">
-          <Link href="/users" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+          <Link href="/adminito69/users" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
             Users
           </Link>
-          <Link href="/deposits" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+          <Link href="/adminito69/deposits" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
             Deposits
           </Link>
-          <Link href="/withdrawals" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+          <Link href="/adminito69/withdrawals" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
             Withdrawals
           </Link>
-          <Link href="/transactions" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+          <Link href="/adminito69/transactions" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
             Transactions
           </Link>
-          <Link href="/mail" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-            Mail
+          <Link href="/adminito69/wallets" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+            Wallets
+          </Link>
+          <Link href="/adminito69/address" className="block text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+            Address
           </Link>
         </div>
       )}

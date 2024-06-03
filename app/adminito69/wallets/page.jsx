@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, CircularProgress, Button, Box, Typography } from '@mui/material';
 
 const WalletsPage = () => {
   const router = useRouter();
@@ -58,46 +60,88 @@ const WalletsPage = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (wallets.length === 0) return <p>No wallets found</p>;
+  if (loading) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+        <CircularProgress />
+        <Typography variant="h6" ml={2}>Loading...</Typography>
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+        <Typography variant="h4" color="error">{error}</Typography>
+      </Box>
+    );
+  }
+
+  if (wallets.length === 0) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+        <Typography variant="h4">No wallets found</Typography>
+      </Box>
+    );
+  }
 
   return (
-    <div className="container pt-16 mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">User Wallets</h1>
-      <p className="mb-4">Total Wallets: {totalCount}</p>
-      <div className="bg-white shadow rounded p-6 mb-8">
-        {wallets.map(wallet => (
-          <div key={wallet._id} className="mb-6">
-            <h2 className="text-2xl font-semibold mb-4">Wallet ID: {wallet._id}</h2>
-            <p><strong>Total Balance:</strong> {wallet.totalBalance}</p>
-            <p><strong>Cash Balance:</strong> {wallet.cashBalance}</p>
-            <p><strong>Gold Balance:</strong> {wallet.goldBalance}</p>
-            <p><strong>Profits:</strong> {wallet.profits}</p>
-            <p><strong>Total Withdrawal:</strong> {wallet.totalWithdrawal}</p>
-            <p><strong>Created At:</strong> {new Date(wallet.createdAt).toLocaleString()}</p>
-            <p><strong>Updated At:</strong> {new Date(wallet.updatedAt).toLocaleString()}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="flex justify-between">
-        <button
+    <Box className="container" pt={8} px={4}>
+      <Typography variant="h3" gutterBottom>User Wallets</Typography>
+      <Typography variant="body1" mb={2}>Total Wallets: {totalCount}</Typography>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell><strong>Wallet ID</strong></TableCell>
+              <TableCell><strong>Total Balance</strong></TableCell>
+              <TableCell><strong>Cash Balance</strong></TableCell>
+              <TableCell><strong>Gold Balance</strong></TableCell>
+              <TableCell><strong>Profits</strong></TableCell>
+              <TableCell><strong>Total Withdrawal</strong></TableCell>
+              <TableCell><strong>Actions</strong></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {wallets.map((wallet) => (
+              <TableRow key={wallet._id}>
+                <TableCell>{wallet._id}</TableCell>
+                <TableCell>{wallet.totalBalance}</TableCell>
+                <TableCell>{wallet.cashBalance}</TableCell>
+                <TableCell>{wallet.goldBalance}</TableCell>
+                <TableCell>{wallet.profits}</TableCell>
+                <TableCell>{wallet.totalWithdrawal}</TableCell>
+                <TableCell>
+                  <Link href={`/adminito69/wallets/${wallet._id}`} passHref>
+                    <Button variant="contained" color="primary">
+                      View
+                    </Button>
+                  </Link>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <Box mt={2} display="flex" justifyContent="space-between">
+        <Button
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+          variant="contained"
+          color="primary"
         >
           Previous
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={handleNextPage}
           disabled={currentPage * walletsPerPage >= totalCount}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+          variant="contained"
+          color="primary"
         >
           Next
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Box>
+    </Box>
   );
 };
 
