@@ -11,36 +11,22 @@ export default function DepositPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [wallets, setWallets] = useState([]);
   const [selectedWallet, setSelectedWallet] = useState(null);
   const router = useRouter();
+
+  const wallets = [
+    { _id: "1", coin: "Bitcoin",  address: "bc1q48m8n3jl7z7gka9sauhve70zpehdmslgs2gkw3", network: "Bitcoin Network" },
+    { _id: "2", coin: "Ethereum",  address: "0xd70c8C3b1B46036D1013D52C1c210d118312550B", network: "Ethereum Network" },
+    { _id: "3", coin: "Tether",  address: "TUXUmRipWPHvCJNzxYKziqeFQX16BpJh61", network: "Tether Network" },
+    { _id: "4", coin: "XLM",  address: "GACH3DMDTGD7B52GHDEJCOWBP77S3WG43BSWKWAWI4LYYUDXGFYMVCGW", network: "  Stellar" },
+    { _id: "5", coin: "XRP", address: "TUXUmRipWPHvCJNzxYKziqeFQX16BpJh61", network: "XRP" }
+
+  ];
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
       router.push("/login");
-    } else {
-      const fetchAdminWallets = async () => {
-        try {
-          const res = await fetch('https://goldback.onrender.com/admin/admin-wallet', {
-            headers: {
-              'Authorization': `Bearer ${token}`,
-            },
-          });
-
-          if (!res.ok) {
-            throw new Error('Failed to fetch admin wallets');
-          }
-
-          const data = await res.json();
-          setWallets(data.data);
-        } catch (error) {
-          console.error('Error fetching admin wallets:', error);
-          setMessage('Failed to load wallets. Please try again.');
-        }
-      };
-
-      fetchAdminWallets();
     }
   }, [router]);
 

@@ -5,6 +5,7 @@ import Money from "../ui/dashboard/Money";
 import TradingView from "../ui/dashboard/TradingView";
 import Orders from "../ui/dashboard/Orders";
 import Orders2 from "../ui/dashboard/Table";
+import DukascopyWidget from "../ui/dashboard/News";
 
 export default function Page() {
   
@@ -55,6 +56,10 @@ export default function Page() {
           <div className="hidden lg:block"> <Orders/></div>
          <div className="lg:hidden"><Orders2/></div>
         </div>
+
+      </div>
+      <div>
+        <DukascopyWidget/>
       </div>
     </div>
   );
