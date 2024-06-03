@@ -159,8 +159,8 @@ export default function Dashboard() {
               </IconButton>
               <p className='lg:text-xl hidden lg:block'>Hello, {user.firstName} {user.lastName}</p>
               <p className='lg:text-xl lg:hidden block'>{user.lastName}</p>
-              <button className='py-2 px-3 mx-12 bg-blue-600 hidden lg:block rounded-xl text-xs'>Deposit Funds <PaidIcon /></button>
-              <div className={`${petrona.className} text-[1rem] font-extrabold ml-3 lg:ml-10 flex items-center gap-1`}>
+              <button onClick={()=>router.push("/dashboard/deposit")} className='py-2 px-3 mx-12 bg-blue-600 hidden lg:block rounded-xl text-xs'>Deposit Funds <PaidIcon /></button>
+              <div className={` text-[1rem] font-extrabold ml-3 lg:ml-10 flex items-center gap-1`}>
                 <AccountBalanceWalletOutlined className='text-[1.5rem]' /> {`$${wallet.totalBalance}.00`}
               </div>
               {/* Spacer to push the profile icon to the right */}

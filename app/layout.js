@@ -39,6 +39,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>World Gold</title>
         <link rel="icon" href="/logo.svg" />
+        <script src="//code.jivosite.com/widget/cPx2ZkgRrS" async></script>
       </head>
       <body className={poppins.className}>
         <div id="google_translate_element"></div>
