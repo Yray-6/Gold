@@ -32,7 +32,7 @@ export default function SignUpPage() {
       setLoading(true);
       setMessage("");
       try {
-        const response = await fetch("https://goldback.onrender.com/auth/register", {
+        const response = await fetch("https://goldback.onrender.com/auth/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
