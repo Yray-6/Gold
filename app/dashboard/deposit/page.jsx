@@ -19,8 +19,7 @@ export default function DepositPage() {
     { _id: "2", coin: "Ethereum",  address: "0xd70c8C3b1B46036D1013D52C1c210d118312550B", network: "Ethereum Network" },
     { _id: "3", coin: "Tether",  address: "TUXUmRipWPHvCJNzxYKziqeFQX16BpJh61", network: "Tether Network" },
     { _id: "4", coin: "XLM",  address: "GACH3DMDTGD7B52GHDEJCOWBP77S3WG43BSWKWAWI4LYYUDXGFYMVCGW", network: "  Stellar" },
-    { _id: "5", coin: "XRP", address: "TUXUmRipWPHvCJNzxYKziqeFQX16BpJh61", network: "XRP" }
-
+    { _id: "5", coin: "XRP", address: "rn6RwsBDtHKC9VYwtEmSsjfATZRzqSc4VP", network: "XRP" }
   ];
 
   useEffect(() => {

@@ -19,7 +19,10 @@ export default function SignUpPage() {
     initialValues: {
       email: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
+      firstName: "",
+      lastName: "",
+      country: "",
     },
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email address").required("Email is required"),
@@ -27,6 +30,9 @@ export default function SignUpPage() {
       confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], "Passwords must match")
         .required("Confirm password is required"),
+      firstName: Yup.string().required("First name is required"),
+      lastName: Yup.string().required("Last name is required"),
+      country: Yup.string().required("Country is required"),
     }),
     onSubmit: async (values) => {
       setLoading(true);
@@ -41,11 +47,12 @@ export default function SignUpPage() {
         });
         const result = await response.json();
         if (result.status === 'success') {
-          setMessage("Registration successful! Redirecting to login...");
+          localStorage.setItem('token', result.data.token);
+          setMessage("Successful Please Verify Mail");
           setOpenModal(true);
           setTimeout(() => {
-            router.push('/login');
-          }, 2000);
+            router.push('/verify-email');
+          }, 1000);
         } else {
           setMessage(result.message || "Something went wrong. Please try again.");
           setOpenModal(true);
@@ -78,6 +85,81 @@ export default function SignUpPage() {
             </div>
             <div className="mt-7 sm:mx-auto sm:w-full sm:max-w-sm">
               <form className="space-y-6" onSubmit={formik.handleSubmit}>
+                <div>
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    First Name
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      placeholder="First Name"
+                      required
+                      className="block w-full rounded-md px-3 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.firstName}
+                    />
+                    {formik.touched.firstName && formik.errors.firstName ? (
+                      <div className="text-red-600">{formik.errors.firstName}</div>
+                    ) : null}
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Last Name
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      placeholder="Last Name"
+                      required
+                      className="block w-full rounded-md px-3 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.lastName}
+                    />
+                    {formik.touched.lastName && formik.errors.lastName ? (
+                      <div className="text-red-600">{formik.errors.lastName}</div>
+                    ) : null}
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="country"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Country
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="country"
+                      name="country"
+                      type="text"
+                      placeholder="Country"
+                      required
+                      className="block w-full rounded-md px-3 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.country}
+                    />
+                    {formik.touched.country && formik.errors.country ? (
+                      <div className="text-red-600">{formik.errors.country}</div>
+                    ) : null}
+                  </div>
+                </div>
+
                 <div>
                   <label
                     htmlFor="email"
