@@ -1,11 +1,6 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
-
-import React from 'react'
 import Link from "next/link";
-
-
 
 const cards = [
   {
@@ -45,57 +40,47 @@ const cards = [
     btn: "LEARN MORE",
   },
 ];
- function FlipCardss({card}) {
+
+function FlipCardss({ card }) {
   const [isFlipped, setIsFlipped] = useState(false);
-  
 
   return (
-    <div >
-      
-        <div className="perspective-1000 h-[300px]">
-          <motion.div
-            className={`relative w-full transform-style-preserve-3d transition-transform duration-700 ${
-              isFlipped ? "rotate-y-180" : ""
-            }`}
-            onMouseEnter={() => setIsFlipped(true)}
-            onMouseLeave={() => setIsFlipped(false)}
-          >
-            <div className="absolute w-full h-full  backface-hidden">
+    <div>
+      <div className="perspective-1000 h-[300px]">
+        <motion.div
+          className={`relative w-full transform-style-preserve-3d transition-transform duration-700 ${isFlipped ? "rotate-y-180" : ""}`}
+          onMouseEnter={() => setIsFlipped(true)}
+          onMouseLeave={() => setIsFlipped(false)}
+        >
+          <div className="absolute w-full h-full backface-hidden">
             <div className="absolute inset-0 bg-black opacity-20"></div>
-              <div className="flex items-center h-[300px] px-1 rounded-xl justify-center  bg-cover bg-no-repeat" style={{backgroundImage:`url(/${card.img})`}}>
-               <p className="text-gold relative z-50 lg:text-[2rem] text-[1.0rem] pt-52 pb-4 font-bold text-center"> {card.text}</p>
-              </div>
+            <div className="flex items-center h-[300px] px-1 rounded-xl justify-center bg-cover bg-no-repeat" style={{ backgroundImage: `url(/${card.img})` }}>
+              <p className="text-gold relative z-50 lg:text-[2rem] text-[1.0rem] pt-52 pb-4 font-bold text-center"> {card.text}</p>
             </div>
-            <div className="absolute w-full h-full backface-hidden transform rotate-y-180">
-              <div className="flex-col rounded-xl h-[300px] py-4 justify-center px-3 bg-white">
-               <p className=" text-[0.7rem] text-cusblue"> {card.text}</p>
-               <p className="text-[1.0rem] leading-tight font-extrabold">{card.text2}</p>
-               <button className=" bg-gradient-to-r from-gradf to-gradt py-1 px-3 mt-8 text-sm rounded text-black"><Link href="/buying">{card.btn}</Link></button>
-              </div>
+          </div>
+          <div className="absolute w-full h-full backface-hidden transform rotate-y-180">
+            <div className="flex-col rounded-xl h-[300px] py-4 justify-center px-3 bg-white">
+              <p className="text-[0.7rem] text-cusblue"> {card.text}</p>
+              <p className="text-[1.0rem] leading-tight font-extrabold">{card.text2}</p>
+              <Link href="/buying">
+                <button className="bg-gradient-to-r from-gradf to-gradt relative z-50 py-1 px-3 lg:mt-16 mt-8 text-sm rounded text-black">{card.btn}</button>
+              </Link>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }
 
-
-
 export default function FlipCardsm() {
   return (
     <div className="flex flex-wrap justify-center">
-        {cards.map((card, index) => (
-            <div className="w-1/2 p-1" key={index}>
-                <FlipCardss  card={card} />
-            </div>
-        
-      ))} 
+      {cards.map((card, index) => (
+        <div className="w-1/2 p-1" key={index}>
+          <FlipCardss card={card} />
+        </div>
+      ))}
     </div>
-      
-    
-  
-    
-    
-  )
+  );
 }
-

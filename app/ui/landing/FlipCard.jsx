@@ -73,7 +73,7 @@ const cards = [
               <div className="flex-col pt-32 rounded-xl justify-center px-3 h-full bg-white">
                <p className=" text-cusblue"> {card.text}</p>
                <p className="text-[1.3rem] leading-tight font-extrabold">{card.text2}</p>
-               <button className=" bg-gradient-to-r from-gradf to-gradt py-3 px-7 mt-10 text-base rounded font-semibold text-black"><Link href="/buying">{card.btn}</Link></button>
+               <Link href="/buying"> <button className=" bg-gradient-to-r from-gradf to-gradt py-3 px-7 mt-20 text-base rounded font-semibold text-black">{card.btn}</button></Link>
               </div>
             </div>
           </motion.div>
